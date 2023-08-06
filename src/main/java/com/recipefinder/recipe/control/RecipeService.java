@@ -12,8 +12,11 @@ public class RecipeService {
 
     private final RecipeRepository recipeRepository;
 
-    public List<RecipeEntity> getAllRecipes(){
+    public List<RecipeEntity> getAllRecipes() {
         return recipeRepository.findAll();
     }
 
+    public List<RecipeEntity> findBySearchText(String searchText) {
+        return recipeRepository.findRecipeEntitiesByNameIsContaining(searchText);
+    }
 }
