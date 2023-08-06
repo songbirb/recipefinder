@@ -19,4 +19,16 @@ public class RecipeBoundaryMapper {
                 .map(this::entityToDto)
                 .toList();
     }
+
+    public RecipeEntity dtoToEntity(RecipeDto dto) {
+        return RecipeEntity.builder()
+                .name(dto.getName())
+                .build();
+    }
+
+    public List<RecipeEntity> dtosToEntities(List<RecipeDto> dtos) {
+        return dtos.stream()
+                .map(this::dtoToEntity)
+                .toList();
+    }
 }
